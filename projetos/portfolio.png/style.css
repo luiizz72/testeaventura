@@ -1,0 +1,342 @@
+@import url("https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@300;400;600&display=swap");
+
+/* ===================== */
+/* VARIÁVEIS DE CORES E FONTES */
+/* ===================== */
+:root {
+  --cor-primaria: #000;
+  --cor-secundaria: #f6f6f6;
+  --cor-terciaria: #22d4fd;
+  --cor-hover: #0f6d86;
+  --cor-card: rgba(10, 10, 10, 0.85);
+
+  --fonte-titulo: "Krona One", sans-serif;
+  --fonte-texto: "Montserrat", sans-serif;
+}
+
+/* ===================== */
+/* RESET GLOBAL */
+/* ===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: radial-gradient(circle at top, #0a0a0a, #000);
+  color: var(--cor-secundaria);
+  font-family: var(--fonte-texto);
+}
+
+/* ===================== */
+/* LAYOUT FLEXÍVEL */
+/* ===================== */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ===================== */
+/* SIDEBAR */
+.sidebar {
+  width: 320px;
+  background: linear-gradient(180deg, #050505, #000);
+  border-right: 1px solid rgba(34, 212, 253, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 50px 20px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebar h1 {
+  font-family: var(--fonte-titulo);
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.sidebar p {
+  color: var(--cor-terciaria);
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-bottom: 25px;
+}
+
+/* ===================== */
+/* NAV SIDEBAR */
+.sidebar nav ul {
+  list-style: none;
+  margin-top: 20px;
+  padding: 0;
+  width: 100%;
+}
+
+.sidebar nav ul li {
+  margin: 12px 0;
+}
+
+.sidebar nav ul li a {
+  color: var(--cor-secundaria);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 15px;
+  border-radius: 6px;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar nav ul li a:hover {
+  background-color: var(--cor-terciaria);
+  color: var(--cor-primaria);
+  box-shadow: 0 0 15px var(--cor-terciaria);
+}
+
+/* ===================== */
+/* FOTO DE PERFIL RETANGULAR */
+.foto-perfil {
+  width: 350px; /* largura fixa */
+  height: 450px; /* altura fixa para retângulo */
+  object-fit: cover; /* mantém proporção e recorta se necessário */
+  border-radius: 12px; /* cantos levemente arredondados */
+  border: 4px solid var(--cor-terciaria);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  margin-bottom: 25px;
+  transition:
+    transform 0.5s,
+    box-shadow 0.5s;
+}
+
+.foto-perfil:hover {
+  transform: scale(1.05) rotate(1.5deg);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.6),
+    0 0 40px var(--cor-terciaria);
+}
+
+/* ===================== */
+/* CONTEÚDO PRINCIPAL */
+.conteudo {
+  flex: 1;
+  padding: 70px 50px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ===================== */
+/* TÍTULOS SEÇÃO */
+h2 {
+  font-family: var(--fonte-titulo);
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-align: center;
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  width: 90px;
+  height: 3px;
+  background: var(--cor-terciaria);
+  display: block;
+  margin: 12px auto 0;
+  border-radius: 2px;
+  box-shadow: 0 0 15px var(--cor-terciaria);
+}
+
+/* ===================== */
+/* SOBRE */
+.sobre-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.sobre-content p {
+  max-width: 550px;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #ddd;
+  text-align: center;
+}
+
+/* ===================== */
+/* HABILIDADES */
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.skills li {
+  list-style: none;
+  padding: 25px;
+  border-radius: 16px;
+  background: var(--cor-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(34, 212, 253, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: 0.4s;
+}
+
+.skills li strong {
+  color: var(--cor-terciaria);
+  font-size: 1.25rem;
+}
+
+.skills li span {
+  color: #aaa;
+  font-size: 0.95rem;
+}
+
+.skills li:hover {
+  transform: translateY(-10px);
+  border-color: var(--cor-terciaria);
+  box-shadow: 0 0 35px rgba(34, 212, 253, 0.55);
+}
+
+/* ===================== */
+/* PROJETOS */
+.projetos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+/* ===================== */
+/* CARDS DE PROJETO */
+.card {
+  height: 240px;
+  padding: 25px;
+  background: var(--cor-card);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid rgba(34, 212, 253, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: 0.5s;
+  z-index: 1;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(34, 212, 253, 0.15),
+    transparent
+  );
+  opacity: 0;
+  transition: 0.5s;
+  z-index: 0;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  transform: translateY(-12px) scale(1.05);
+  border-color: var(--cor-terciaria);
+  box-shadow: 0 0 45px rgba(34, 212, 253, 0.5);
+}
+
+.card.destaque {
+  border-color: var(--cor-terciaria);
+  box-shadow: 0 0 30px rgba(34, 212, 253, 0.5);
+}
+
+.card h3 {
+  font-family: var(--fonte-titulo);
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+.card a {
+  margin-top: auto;
+  border: 2px solid var(--cor-terciaria);
+  padding: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--cor-secundaria);
+  font-weight: 600;
+  transition: 0.4s;
+  position: relative;
+  z-index: 2;
+}
+
+.card a:hover {
+  background: var(--cor-terciaria);
+  color: var(--cor-primaria);
+  box-shadow: 0 0 30px var(--cor-terciaria);
+}
+
+/* ===================== */
+/* FOOTER */
+.rodape {
+  margin-top: 80px;
+  text-align: center;
+  padding: 25px;
+  font-size: 14px;
+  color: #888;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ===================== */
+/* RESPONSIVO */
+@media (max-width: 900px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: relative;
+    height: auto;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(34, 212, 253, 0.2);
+    padding: 30px 20px;
+  }
+
+  .conteudo {
+    padding: 40px 20px;
+  }
+
+  .sobre-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .foto-perfil {
+    width: 80%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .sidebar nav ul li a {
+    text-align: center;
+  }
+}
